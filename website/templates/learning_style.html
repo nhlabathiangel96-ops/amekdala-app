@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Learning Style Quiz{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3>Discover Your Learning Style</h3>
+        </div>
+        <div class="card-body">
+            <form action="/save-learning-style" method="POST">
+                <p>When you study for a test, what do you prefer?</p>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="style" value="Visual" required>
+                    <label class="form-check-label">Looking at diagrams, videos, and colourful notes.</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="style" value="Auditory" required>
+                    <label class="form-check-label">Listening to the teacher speak, or reading out loud.</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="style" value="Kinaesthetic" required>
+                    <label class="form-check-label">Doing practical examples and moving around.</label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Save My Style</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

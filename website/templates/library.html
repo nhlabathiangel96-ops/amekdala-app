@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Content Library - {{ subject_name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Subjects</a></li>
+            <li class="breadcrumb-item"><a href="/subject/{{ subject_name.lower() }}">{{ subject_name }}</a></li>
+            <li class="breadcrumb-item active">Content Library</li>
+        </ol>
+    </nav>
+
+    <div class="card shadow border-warning mb-4">
+        <div class="card-header bg-warning text-dark">
+            <h3 class="mb-0">📚 Official Study Guides</h3>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info">
+                <strong>Licensing Notice:</strong> We are currently in partnership talks with the Department of Basic
+                Education to host these official CAPS guides.
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Inoveli: Ubonakele</h5>
+                            <p class="card-text text-muted">IsiNdebele Novel Study Guide (ISBN 978-1-4315-3372-5)</p>
+                            <button class="btn btn-secondary" disabled>View Guide (Pending)</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Iinkondlo: Sikhambakhambile</h5>
+                            <p class="card-text text-muted">IsiNdebele Poetry Study Guide (ISBN 978-1-4315-3374-9)</p>
+                            <button class="btn btn-secondary" disabled>View Guide (Pending)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The AI Generator Section -->
+    <div class="card shadow border-success">
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">🤖 AI Practice Question Generator</h3>
+        </div>
+        <div class="card-body">
+            <p>Our AI has been trained to read the style and format of the official guides. Click below to generate a
+                set of unique, timed practice questions in the exact style of the CAPS exams.</p>
+            <a href="/subject/isindebele/ai-guide" class="btn btn-success btn-lg w-100">Generate AI Practice
+                Questions</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

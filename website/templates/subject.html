@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}{{ subject_name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Breadcrumb / Back Button -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Subjects</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ subject_name }}</li>
+        </ol>
+    </nav>
+
+    <h2 class="mb-4">📚 {{ subject_name }} Study Hub</h2>
+    <p class="text-muted">Select a tool below to begin your study session.</p>
+
+    <div class="row mt-4">
+        {% if subject_name.lower() == 'isindebele' %}
+        <!-- ========================================== -->
+        <!-- ISINDEBELE SPECIFIC CARDS -->
+        <!-- ========================================== -->
+
+        <!-- Card 1: Diagnostic Exam Papers -->
+        <div class="col-md-6 mb-4">
+            <a href="/subject/isindebele/diagnostic" class="text-decoration-none">
+                <div class="card shadow-sm h-100 border-primary">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">📝</h1>
+                        <h4 class="card-title text-primary">Diagnostic Exam Papers</h4>
+                        <p class="card-text text-muted">Full IsiNdebele Question Papers (Paper 1, 2 & 3). AI Tutor
+                            included for corrections.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card 2: CAPS Content Library & AI Generator -->
+        <div class="col-md-6 mb-4">
+            <a href="/subject/isindebele/library" class="text-decoration-none">
+                <div class="card shadow-sm h-100 border-warning">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">📚</h1>
+                        <h4 class="card-title text-warning">CAPS Content & AI Generator</h4>
+                        <p class="card-text text-muted">Official Study Guides (Ubonakele, Sikhambakhambile) and
+                            AI-generated practice questions.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        {% else %}
+        <!-- ========================================== -->
+        <!-- NORMAL CARDS FOR MATHS, PHYSICS, ETC. -->
+        <!-- ========================================== -->
+
+        <!-- Card 1: Diagnostic Tests -->
+        <div class="col-md-4 mb-4">
+            <a href="/subject/{{ subject_name.lower() }}/diagnostic" class="text-decoration-none">
+                <div class="card shadow-sm h-100 border-primary">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">🎯</h1>
+                        <h4 class="card-title text-primary">Diagnostic Tests</h4>
+                        <p class="card-text text-muted">Take a Pre-Test and Post-Test to measure your progress.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card 2: AI Study Guides -->
+        <div class="col-md-4 mb-4">
+            <a href="/subject/{{ subject_name.lower() }}/ai-guide" class="text-decoration-none">
+                <div class="card shadow-sm h-100 border-success">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">🤖</h1>
+                        <h4 class="card-title text-success">AI Study Guides</h4>
+                        <p class="card-text text-muted">Generate a custom, AI-powered study guide for this subject.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card 3: Study Partner Hotspot -->
+        <div class="col-md-4 mb-4">
+            <a href="/hotspot" class="text-decoration-none">
+                <div class="card shadow-sm h-100 border-info">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">🤝</h1>
+                        <h4 class="card-title text-info">Study Partner Hotspot</h4>
+                        <p class="card-text text-muted">Find peers who share your exact learning style.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

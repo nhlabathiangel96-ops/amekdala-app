@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}School Calendar{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">📅 CAPS Academic Calendar (Term 1)</h2>
+
+    <div class="alert alert-info">
+        <strong>📢 Important:</strong> Your teacher expects you to cover these topics this week. Stay ahead of mental
+        fatigue by preparing before class!
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Mathematics - Week 4</h5>
+                </div>
+                <div class="card-body">
+                    <p class="fs-5"><strong>Topic:</strong> Algebraic Expressions (Exponents)</p>
+                    <p><strong>Assessment:</strong> SBA Investigation Task due Friday.</p>
+                    <button class="btn btn-outline-primary w-100">Mark as Completed</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">IsiNdebele - Week 4</h5>
+                </div>
+                <div class="card-body">
+                    <p class="fs-5"><strong>Topic:</strong> Ubonakele (Novel) - Chapter 3 & 4</p>
+                    <p><strong>Assessment:</strong> Reading comprehension test on Friday.</p>
+                    <button class="btn btn-outline-success w-100">Mark as Completed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

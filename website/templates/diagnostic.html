@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Diagnostic Tests - {{ subject_name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Subjects</a></li>
+            <li class="breadcrumb-item"><a href="/subject/{{ subject_name.lower() }}">{{ subject_name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Diagnostic Tests</li>
+        </ol>
+    </nav>
+
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">🎯 {{ subject_name }} - Diagnostic Tests</h3>
+        </div>
+        <div class="card-body">
+            <p class="text-muted">Complete the Pre-Test first to unlock the Post-Test.</p>
+
+            <div class="row mt-4">
+                <!-- Pre-Test Card -->
+                <div class="col-md-6 mb-3">
+                    <div class="card border-primary h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Pre-Test</h4>
+                            <p class="card-text">Test your baseline knowledge before studying.</p>
+                            <!-- THIS LINKS TO THE PAPERS PAGE -->
+                            <a href="/subject/{{ subject_name.lower() }}/papers" class="btn btn-primary w-100">Start
+                                Pre-Test</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Test Card (Disabled) -->
+                <div class="col-md-6 mb-3">
+                    <div class="card border-secondary bg-light h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-muted">Post-Test</h4>
+                            <p class="card-text text-muted">Complete the Pre-Test to unlock this.</p>
+                            <button class="btn btn-secondary w-100" disabled>Locked</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

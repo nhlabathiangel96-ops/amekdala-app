@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}My Grades{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">📊 My Academic Performance</h2>
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Test History</h5>
+        </div>
+        <div class="card-body">
+            {% if results %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Test Type</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ result.date_taken.strftime('%d %b %Y') }}</td>
+                        <td>{{ result.subject }}</td>
+                        <td>{{ result.test_type }}</td>
+                        <td>
+                            <span class="badge {% if result.score >= 50 %}bg-success{% else %}bg-danger{% endif %}">
+                                {{ result.score }}%
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="text-muted text-center">You haven't taken any tests yet. Select a class from the dashboard to
+                begin!</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

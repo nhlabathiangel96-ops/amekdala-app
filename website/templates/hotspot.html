@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Study Partner Hotspot{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Subjects</a></li>
+            <li class="breadcrumb-item active">Study Partner Hotspot</li>
+        </ol>
+    </nav>
+
+    <div class="card shadow border-success">
+        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">🤝 Your Learning Style: {{ current_user.learning_style }}</h3>
+            <a href="/learning-style-quiz" class="btn btn-light btn-sm">Retake Quiz</a>
+        </div>
+        <div class="card-body">
+            <p class="text-muted">Here are other learners who share your exact learning style. Add them and study
+                together!</p>
+
+            {% if partners %}
+            <div class="list-group mt-4">
+                {% for partner in partners %}
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-1">{{ partner.first_name }}</h5>
+                        <small class="text-muted">Learning Style: {{ partner.learning_style }}</small>
+                    </div>
+                    <!-- WhatsApp Connect Button -->
+                    <a href="https://wa.me/?text=Hi%20{{ partner.first_name }}!%20I%20found%20you%20on%20AMEKDALA.%20We%20both%20learn%20{{ partner.learning_style }}.%20Let's%20study%20together!"
+                        target="_blank" class="btn btn-success btn-sm">
+                        Connect via WhatsApp
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-info mt-3">
+                No study partners with your learning style have joined yet. Invite your friends to sign up!
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

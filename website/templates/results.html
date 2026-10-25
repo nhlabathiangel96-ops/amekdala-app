@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Results{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow text-center">
+        <div class="card-header bg-dark text-white">
+            <h3>Test Results</h3>
+        </div>
+        <div class="card-body">
+            <h1 class="display-1">{{ score }}%</h1>
+            <h4 class="mb-4">You scored {{ correct }} out of {{ total }} questions.</h4>
+
+            {% if score >= 50 %}
+            <div class="alert alert-success">
+                Great job! You have a solid foundation. Keep practicing!
+            </div>
+            {% else %}
+            <div class="alert alert-danger">
+                You need some more practice. Don't worry, AMEKDALA is here to help you study!
+            </div>
+            {% endif %}
+
+            <a href="/" class="btn btn-primary mt-3">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
